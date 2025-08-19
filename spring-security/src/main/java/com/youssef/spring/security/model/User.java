@@ -22,12 +22,15 @@ import java.util.List;
 public class User implements UserDetails {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String firstName;
     private String lastName;
 
-    @Column(unique = true)
+    @Column(unique = true,nullable = false)
     private String email;
+
+    @Column(nullable = false)
     private String password;
 
 
@@ -37,11 +40,8 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(role.name()));
+        return List.of(new SimpleGrantedAuthority("ROLE_" + role.name()));
     }
-
-
-
 
     @Override
     public String getUsername() {
@@ -67,4 +67,8 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+
+
+
 }
