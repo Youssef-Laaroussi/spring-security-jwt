@@ -2,7 +2,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/authdb
     username: postgres
-    password: postgres
+    password: yourpassword
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
@@ -11,14 +11,20 @@ spring:
     properties:
       hibernate:
         format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
 
 app:
   security:
     jwt:
-      secret: ${JWT_SECRET:defaultSecretKeyForDevelopmentOnlyChangeInProduction}
-      access-token-expiration: 900000 # 15 min
-      refresh-token-expiration: 2592000000 # 30 jours
+      secret: ${JWT_SECRET:mySuperSecretKeyForDevelopmentChangeInProduction123!}
+      access-token-expiration: 900000  # 15 minutes
+      refresh-token-expiration: 2592000000  # 30 jours
+
+server:
+  port: 8080
 
 logging:
   level:
-    org.springframework.security: DEBUG
+    com.youssef.spring.security: DEBUG  # ✅ VOTRE PACKAGE CORRECT
+    org.springframework.security: DEBUG  # Pour voir les logs de sécurité
+    org.hibernate.SQL: DEBUG  # Pour voir les requêtes SQL.youssef.spring.security: DEBUG
