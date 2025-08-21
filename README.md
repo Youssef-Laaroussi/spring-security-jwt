@@ -11,3 +11,5 @@ Ce projet est une application full-stack avec **Spring Boot (backend)** et **Ang
 - 🔄 Renouvellement de token (refresh token)  
 - 👮 Rôles utilisateurs (**USER**, **ADMIN**)  
 - 🌐 API REST sécurisée et consommée par Angular
+
+## 🏗️ Architecture du projet
