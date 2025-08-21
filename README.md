@@ -13,3 +13,5 @@ Ce projet est une application full-stack avec **Spring Boot (backend)** et **Ang
 - 🌐 API REST sécurisée et consommée par Angular
 
 ## 🏗️ Architecture du projet
+
+...
